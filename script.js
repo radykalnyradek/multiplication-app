@@ -11,16 +11,22 @@ const correctAnswer = num1 * num2;
 
 let score = JSON.parse(localStorage.getItem("score"));
 
-resetBtn.addEventListener("click", () => {
-  score = 1;
-});
-
 if (!score) {
   score = 0;
 }
 
 scoreEl.innerText = "score: " + score;
 questionEl.innerText = "What is " + num1 + " multiply by " + num2 + "?";
+
+resetBtn.addEventListener("click", () => {
+  const userAnswer = answerEl.value;
+  if (userAnswer === "") {
+    score = 1;
+  } else if (+userAnswer === correctAnswer) {
+    score = -1;
+  }
+  updateLocalStorage();
+});
 
 formEl.addEventListener("submit", () => {
   const userAnswer = answerEl.value;
