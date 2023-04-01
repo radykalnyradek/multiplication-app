@@ -28,16 +28,6 @@ resetBtn.addEventListener("click", () => {
   updateLocalStorage();
 });
 
-resetBtn.addEventListener("click", () => {
-  const userAnswer = answerEl.value;
-  if (userAnswer === "") {
-    score = 1;
-  } else if (+userAnswer === correctAnswer) {
-    score = -1;
-  }
-  updateLocalStorage();
-});
-
 formEl.addEventListener("submit", () => {
   const userAnswer = answerEl.value;
   if (+userAnswer === correctAnswer) {
